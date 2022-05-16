@@ -11,7 +11,7 @@ const defaultData = {
 async function getPhotographers() {
     const result = await fetch('data/photographers.json')
     const data = await result.json()
-    console.log(data.photographers)
+    console.log(data)
     return data.photographers? data.photographers : [defaultData];
 }
 
@@ -42,6 +42,6 @@ async function init() {
 
 init();
 
-module.exports = {
-    defaultData
-}
+// module.exports = {
+//     defaultData
+// }

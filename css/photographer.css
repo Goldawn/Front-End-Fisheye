@@ -1,11 +1,46 @@
-#contact_modal {
-    display: none;
-}
-
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.photograph-header > * {
+    flex: 1;
+}
+
+.photograph-infos h1 {
+    color: #D3573C;
+    font-size: 64px;
+    font-weight: normal;
+    margin: 0 0 5px 0;
+}
+
+.photograph-infos p {
+    font-size: 18px;
+}
+
+.photograph-infos p:nth-child(2) {
+    color: #901C1C;
+    font-size: 24px
+}
+
+.contact-btn {
+    text-align: center;
+}
+
+.photograph-profile-pic {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.photograph-profile-pic img {
+    width: 200px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .contact_button {
@@ -21,6 +56,83 @@
     cursor: pointer;
 }
 
+.photograph-media {
+    margin: 50px 100px;
+}
+
+.photograph-media label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.photograph-media select {
+    background-color: #901C1C;
+    font-size: 20px;
+    color: white;
+    padding: 15px;
+}
+
+.photograph-media option {
+    padding: 10px;
+}
+
+.photograph-media div{
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 40px;;
+}
+
+.photograph-media article {
+    width: 30%;
+    margin-bottom: 25px;
+}
+
+.photograph-media article:nth-child(3n + 2) {
+    margin: 0 5%;
+}
+
+.photograph-media p {
+    display: inline-block;
+    width: 50%;
+    color: #901C1C;
+    font-size: 20px;
+    font-weight: 400;;
+}
+.photograph-media p:last-of-type {
+    text-align: right;
+}
+
+.photograph-media img, .photograph-media video {
+    width: 100%;
+    aspect-ratio: 7/6;
+    object-fit: cover;
+}
+
+#photograph-banner {
+    background-color: #DB8876;
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    padding: 5px 25px;
+    border-radius: 8px 8px 0 0;
+    font-size: 20px;
+    font-weight: medium;
+}
+#photograph-banner i {
+    margin-right: 30px;;
+}
+
+#contact_modal, #media-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    display: none;
+    position: fixed;
+    top: 0;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -30,7 +142,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    margin: 100px auto;
 }
 
 .modal header {
@@ -73,4 +185,75 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+form textarea {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+.modal-content {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.panel {
+    width: 10%;
+}
+
+.panel a {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#central-panel {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#central-panel ul.carousel {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#central-panel ul.carousel li {
+    list-style: none;
+}
+
+#central-panel ul.carousel .carousel-item:not(.active) {
+    display: none;
+}
+
+#media-modal .panel img {
+    filter: invert(85%) sepia(36%) saturate(6530%) hue-rotate(348deg) brightness(85%) contrast(93%);
+    width: 38px;
+}
+
+#media-modal .panel a img {
+    filter: invert(15%) sepia(36%) saturate(6530%) hue-rotate(348deg) brightness(85%) contrast(93%);
+    transform: scale(2);
+    width: 38px;
+}
+
+#media-modal #central-panel img, #media-modal #central-panel video {
+    width: auto;
+    max-width: 80vw;
+    max-height: 90vh;
+    object-fit: contain;
 }
