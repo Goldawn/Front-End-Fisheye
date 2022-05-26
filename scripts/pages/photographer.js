@@ -2,6 +2,8 @@ import MediaBrowser from "../utils/mediaBrowser.js";
 import { LikesHandler } from "../utils/likes.js"
 import { SortHandler } from "../utils/sort.js"
 
+let photographerMediaData = [];
+
 
 const getParams = () => {
     const params = (new URL(document.location)).searchParams;
@@ -32,40 +34,49 @@ async function getPhotographerDatas(id) {
 async function displayData(photographer) {
 
     const photographHeader = document.querySelector(".photograph-header");
-    // const photographMedia = document.querySelector(".photograph-media");
-    const photographBanner = document.getElementById('photograph-banner');
 
         const photographerModel = photographerMediaFactory(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
-        // const mediaDOM = photographerModel.getMediaDOM();
         const bannerDOM = photographerModel.getBannerDOM();
         userCardDOM.forEach( element => {
             photographHeader.appendChild(element);
         })
-        // photographMedia.appendChild(mediaDOM);
-        photographBanner.appendChild(bannerDOM)
 };
 
 export class MediaHandler {
 
-    static async displayMedia(photographer, sortOpt) {
-    
+    static async displayMedia(photographer, sortOpt) { 
         const photographMedia = document.querySelector(".photograph-media");
         const photographerModel = photographerMediaFactory(photographer);
         const mediaDOM = photographerModel.getMediaDOM(sortOpt);
         photographMedia.appendChild(mediaDOM);
     };
 
+    static async displayBanner(photographer) {
+
+        const photographBanner = document.getElementById('photograph-banner');
+
+        const photographerModel = photographerMediaFactory(photographer);
+        const bannerDOM = photographerModel.getBannerDOM();
+        photographBanner.appendChild(bannerDOM)
+    }
 }
 
+async function handleMediaData(photographer) {
+    photographer[1].forEach(media => {
+        photographerMediaData.push(media)
+    })
+}
 
 async function init() {
     const photographerId = getParams();
     const photographer = await getPhotographerDatas(photographerId)
+    await handleMediaData(photographer)
     await displayData(photographer)
     await MediaHandler.displayMedia(photographer)
+    await MediaHandler.displayBanner(photographer)
     MediaBrowser.initMedia();
-    LikesHandler.initLikes();
+    LikesHandler.initLikes(photographer);
     await SortHandler.initSort(photographer);
 }
 

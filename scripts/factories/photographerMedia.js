@@ -47,6 +47,19 @@ function photographerMediaFactory(data) {
             })
             break;
         case "date":
+            // trier par date
+            photographerMediaList.sort(function(a, b) {
+                const dateA = a.date; // ignore upper and lowercase
+                const dateB = b.date; // ignore upper and lowercase
+                if (dateA < dateB) {
+                    return -1;
+                }
+                if (dateA > dateB) {
+                    return 1;
+                }
+                // names must be equal
+                return 0;
+            });
             break;
         case "title":
             // trier par titre
@@ -64,7 +77,7 @@ function photographerMediaFactory(data) {
             });
             break;
         }
-
+    
     photographerMediaList.forEach( media => {
         const article = document.createElement('article');
         const mediaTitle = document.createElement( 'p' );
@@ -95,12 +108,13 @@ function photographerMediaFactory(data) {
         else {
             console.log(media)
         }
-    })    
+    })
     return (allMediaContainer)
     }
 
     function getBannerDOM() {
         const bannerText = document.createElement("p")
+        bannerText.setAttribute("id", "banner-container")
         let totalLikes = 0;
         photographerMediaList.forEach( media => totalLikes += media.likes )
         bannerText.innerHTML = `<span id="total-likes-counter">${totalLikes}</span> <i class="fa-solid fa-heart"></i> ${photographerData.price}€/jour`

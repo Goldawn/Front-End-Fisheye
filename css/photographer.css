@@ -94,12 +94,13 @@
 
 .photograph-media p {
     display: inline-block;
-    width: 50%;
+    width: 85%;
     color: #901C1C;
     font-size: 20px;
     font-weight: 400;;
 }
 .photograph-media p:last-of-type {
+    width: 15%;
     text-align: right;
 }
 
@@ -124,7 +125,7 @@
 }
 
 #contact_modal, #media-modal {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, .85);
     width: 100vw;
     height: 100vh;
     display: flex;

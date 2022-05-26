@@ -15,14 +15,6 @@ async function getPhotographers() {
     return data.photographers? data.photographers : [defaultData];
 }
 
-// async function getPhotographers () {
-//     return fetch('data/photographers.json')
-//         .then(res => res.json())
-//         .then(res => res.photographers)
-//         .catch(err => console.log('erreur rencontrée', err))
-// }
-
-
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 
@@ -36,12 +28,7 @@ async function displayData(photographers) {
 
 async function init() {
     const photographers = await getPhotographers()
-    // console.log(photographers)
     displayData(photographers);
 }
 
 init();
-
-// module.exports = {
-//     defaultData
-// }

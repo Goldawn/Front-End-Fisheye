@@ -78,7 +78,6 @@ class MediaBrowser {
         this.currentImgIndex = 0;
         this.photographerMediaList = document.querySelectorAll('.media');
 
-
         this.photographerMediaList.forEach((media, index) => {
 
             media.addEventListener("click", (event) => {
