@@ -44,11 +44,13 @@ class MediaBrowser {
             this.displayShowcase(this.currentImgIndex)
         }
 
+        // Fermeture de la lightbox
         this.closeBtnHandler = (event) => {
             event.preventDefault();
             this.modal.style.display = "none";
         }
 
+        // Génération du fichier html <img> ou <video>
         this.generateMedia = (ext, src) => {
             this.centralPanel.innerHTML = '';
             if (ext === "jpg") {
@@ -73,7 +75,7 @@ class MediaBrowser {
         }
     }
 
-
+    // Initialisation de la lightbox au clic de l'utilisateur
     initMedia() {
         this.currentImgIndex = 0;
         this.photographerMediaList = document.querySelectorAll('.media');
@@ -102,6 +104,7 @@ class MediaBrowser {
 
     }
 
+    // Suppression des events de la lightbox
     clearEvents() {
         this.prevBtn.removeEventListener("click", this.prevBtnHandler)
         this.nextBtn.removeEventListener("click", this.nextBtnHandler)

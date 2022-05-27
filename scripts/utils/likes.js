@@ -1,6 +1,7 @@
 export class LikesHandler {
 
-    static initLikes(photographer) {
+    // Fonction qui incrémente ou décrémente les likes au clic de l'utilisateur
+    static initLikes() {
 
         const likeBtn = document.querySelectorAll(".like-icon")  
         const likesCounter = document.querySelectorAll(".likes-counter")

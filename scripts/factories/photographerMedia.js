@@ -4,6 +4,7 @@ function photographerMediaFactory(data) {
     const photographerMediaList = data[1]
     const { name, city, country, tagline, portrait} = photographerData;
 
+    // Génération du DOM du bandeau top de la page avec les détails du photographe
     function getUserCardDOM() {
 
         const picture = `assets/photographers/${portrait}`;
@@ -30,10 +31,12 @@ function photographerMediaFactory(data) {
         contactBtn.appendChild(contactButton)
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
+        img.setAttribute("alt", name)
         photographProfilePic.appendChild(img)
         return ([photographInfo, contactBtn, photographProfilePic]);
     }
 
+    // Génération du DOM de la bibliothèque des médias
     function getMediaDOM(sortOpt = "popularity") {
     
     const allMediaContainer = document.createElement('div');
@@ -90,6 +93,7 @@ function photographerMediaFactory(data) {
             const thumbnail = `assets/images/${name}/${media.image}`;
             const img = document.createElement( 'img' );
             img.setAttribute("src", thumbnail)
+            img.setAttribute("alt", media.title)
             img.setAttribute("class", `media ${media.id}`)
             article.appendChild(img)
             article.appendChild(mediaTitle)
@@ -100,6 +104,7 @@ function photographerMediaFactory(data) {
             const video = document.createElement('video')
             video.setAttribute("src", `assets/images/${name}/${media.video}`)
             video.setAttribute("class", "media")
+            video.setAttribute("aria-label", `${media.video}`)
             article.appendChild(video)
             article.appendChild(mediaTitle)
             article.appendChild(mediaLikeCounter)
@@ -112,6 +117,7 @@ function photographerMediaFactory(data) {
     return (allMediaContainer)
     }
 
+    // Génération du DOM du bandeau en bas de page avec la somme des likes
     function getBannerDOM() {
         const bannerText = document.createElement("p")
         bannerText.setAttribute("id", "banner-container")

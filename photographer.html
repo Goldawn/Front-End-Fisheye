@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,37 +10,40 @@
   </head>
   <body>
     <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" />
+      <a title="page d'accueil" href="index.html">
+        <div>
+          <img src="assets/images/logo.png" alt="site-logo" class="logo" />
+        </div>
       </a>
     </header>
+
     <main id="main">
 
-      <div class="photograph-header">
-      </div>
+      <section class="photograph-header" aria-label="En-tête du photographe">
+      </section>
 
-      <div class="photograph-media">
+      <section class="photograph-media" aria-label="Gallerie de médias">
 
-        <label for="medias">Trier Par </label>
+        <label for="medias">Trier Par</label>
 
-        <select name="medias" id="select-medias">
+        <select name="medias" id="medias">
           <option selected="selected" value="popularity">Popularité</option>
           <option value="title">Titre</option>
           <option value="date">Date</option>
         </select>
 
-      </div>
+      </section>
 
       <div id="photograph-banner">
       </div>
 
     </main>
 
-    <div id="contact_modal">
+    <div id="contact_modal" aria-label="formulaire de contact">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()"/>
+          <img src="assets/icons/close.svg" alt="close modal button" aria-label="Close modal" onclick="closeModal()"/>
         </header>
 				<form name="contact" id="contact-form" method="get">
 					<div> 
@@ -50,6 +53,7 @@
                 type="text"
                 id="firstname"
                 name="first"
+                aria-label="Prénom"
               />
 					</div>
           <div> 
@@ -59,6 +63,7 @@
                 type="text"
                 id="lastname"
                 name="last"
+                aria-label="Nom"
               />
 					</div>
           <div>
@@ -68,6 +73,7 @@
                 type="email"
                 id="email"
                 name="email"
+                aria-label="email"
               />
           </div>
           <div>
@@ -77,6 +83,7 @@
                 id="message"
                 name="message"
                 rows="10"
+                aria-label="Message"
               >
               </textarea>
           </div>
@@ -88,17 +95,16 @@
     <div id="media-modal">
       <div class="modal-content">
         <div class="panel">
-          <a href="">
-            <img id="prev-btn" class="nav-btn" src="assets/icons/left-chevron.svg"/>
+          <a href="" title="previous button" aria-label="Previous">
+            <img id="prev-btn" class="nav-btn" alt="modal left navigation button" src="assets/icons/left-chevron.svg"/>
           </a>
         </div>
         <div id="central-panel">
-          <!-- <img id="showcased" src=""/> -->
         </div>
         <div class="panel">
-          <img id="close-btn" src="assets/icons/close.svg"/>
-          <a href="">
-            <img id="next-btn" class="nav-btn" src="assets/icons/right-chevron.svg"/>
+          <img id="close-btn" alt="modal close navigation button" aria-label="Close" src="assets/icons/close.svg"/>
+          <a href="" title="next button" aria-label="Next">
+            <img id="next-btn" class="nav-btn" alt="modal right navigation button" src="assets/icons/right-chevron.svg"/>
           </a>
         </div>
 			</div>

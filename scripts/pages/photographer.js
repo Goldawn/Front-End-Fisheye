@@ -4,13 +4,14 @@ import { SortHandler } from "../utils/sort.js"
 
 let photographerMediaData = [];
 
-
+//  Fonction qui récupère les informations passées en paramètre URL
 const getParams = () => {
     const params = (new URL(document.location)).searchParams;
     const photographerId = params.get('id')
     return photographerId;
 }
 
+// On récupère et retourne les datas dans la fichier json
 async function getPhotographerDatas(id) {
     const result = await fetch('data/photographers.json')
     const data = await result.json()
@@ -31,13 +32,13 @@ async function getPhotographerDatas(id) {
     return [photographerData, photographerMedia];
 }
 
+// On affiche le DOM généré du bandeau top d'un photographe
 async function displayData(photographer) {
 
     const photographHeader = document.querySelector(".photograph-header");
 
         const photographerModel = photographerMediaFactory(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
-        const bannerDOM = photographerModel.getBannerDOM();
         userCardDOM.forEach( element => {
             photographHeader.appendChild(element);
         })
@@ -45,6 +46,7 @@ async function displayData(photographer) {
 
 export class MediaHandler {
 
+    // On affiche le DOM généré de la bibliothèque des médias
     static async displayMedia(photographer, sortOpt) { 
         const photographMedia = document.querySelector(".photograph-media");
         const photographerModel = photographerMediaFactory(photographer);
@@ -52,6 +54,7 @@ export class MediaHandler {
         photographMedia.appendChild(mediaDOM);
     };
 
+    // On affiche le DOM généré de la bannière de la somme des likes
     static async displayBanner(photographer) {
 
         const photographBanner = document.getElementById('photograph-banner');
@@ -62,16 +65,10 @@ export class MediaHandler {
     }
 }
 
-async function handleMediaData(photographer) {
-    photographer[1].forEach(media => {
-        photographerMediaData.push(media)
-    })
-}
-
+// Suite d'instructions à l'initialisation de la page
 async function init() {
     const photographerId = getParams();
     const photographer = await getPhotographerDatas(photographerId)
-    await handleMediaData(photographer)
     await displayData(photographer)
     await MediaHandler.displayMedia(photographer)
     await MediaHandler.displayBanner(photographer)

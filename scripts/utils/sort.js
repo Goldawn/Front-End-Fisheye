@@ -4,6 +4,7 @@ import { LikesHandler } from "../utils/likes.js"
 
 export class SortHandler {
 
+    // On récupère la valeur du séléecteur de tri, puis on la passe en paramètre de la fonction de génération de la bibliothèque des médias pour recharger cette partie du DOM
     static async initSort(photographer) {
 
         const photographMedia = document.querySelector(".photograph-media");
