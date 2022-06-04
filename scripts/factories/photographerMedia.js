@@ -83,7 +83,7 @@ function photographerMediaFactory(data) {
     
     photographerMediaList.forEach( media => {
         const article = document.createElement('article');
-        const mediaTitle = document.createElement( 'p' );
+        const mediaTitle = document.createElement( 'h2' );
         mediaTitle.textContent = media.title;
         const mediaLikeCounter = document.createElement( 'p' );
         mediaLikeCounter.innerHTML = `<span class="likes-counter">${media.likes}</span> <i class="fa-solid fa-heart like-icon"></i>`;

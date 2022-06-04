@@ -92,7 +92,7 @@
     margin: 0 5%;
 }
 
-.photograph-media p {
+.photograph-media h2,.photograph-media p {
     display: inline-block;
     width: 85%;
     color: #901C1C;

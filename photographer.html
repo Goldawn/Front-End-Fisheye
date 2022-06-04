@@ -11,9 +11,9 @@
   <body>
     <header>
       <a title="page d'accueil" href="index.html">
-        <div>
+        <picture>
           <img src="assets/images/logo.png" alt="site-logo" class="logo" />
-        </div>
+        </picture>
       </a>
     </header>
 
@@ -26,7 +26,7 @@
 
         <label for="medias">Trier Par</label>
 
-        <select name="medias" id="medias">
+        <select name="medias" id="select-medias">
           <option selected="selected" value="popularity">Popularité</option>
           <option value="title">Titre</option>
           <option value="date">Date</option>
@@ -43,7 +43,9 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" alt="close modal button" aria-label="Close modal" onclick="closeModal()"/>
+          <a title="close button" aria-label="Close" tabindex="0">
+            <img src="assets/icons/close.svg" alt="close modal button" aria-label="Close modal" onclick="closeModal()"/>
+          </a>
         </header>
 				<form name="contact" id="contact-form" method="get">
 					<div> 
