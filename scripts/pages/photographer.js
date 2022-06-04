@@ -1,8 +1,7 @@
+/* eslint-disable no-undef */
 import MediaBrowser from "../utils/mediaBrowser.js";
 import { LikesHandler } from "../utils/likes.js"
 import { SortHandler } from "../utils/sort.js"
-
-let photographerMediaData = [];
 
 //  Fonction qui récupère les informations passées en paramètre URL
 const getParams = () => {
@@ -42,7 +41,7 @@ async function displayData(photographer) {
         userCardDOM.forEach( element => {
             photographHeader.appendChild(element);
         })
-};
+}
 
 export class MediaHandler {
 
@@ -52,7 +51,7 @@ export class MediaHandler {
         const photographerModel = photographerMediaFactory(photographer);
         const mediaDOM = photographerModel.getMediaDOM(sortOpt);
         photographMedia.appendChild(mediaDOM);
-    };
+    }
 
     // On affiche le DOM généré de la bannière de la somme des likes
     static async displayBanner(photographer) {

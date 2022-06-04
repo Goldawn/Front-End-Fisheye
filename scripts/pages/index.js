@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const defaultData = {
     "name": "no data",
     "id": -1,
@@ -24,7 +25,7 @@ async function displayData(photographers) {
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
-};
+}
 
 // Procédure de lancement à l'initialisation
 async function init() {

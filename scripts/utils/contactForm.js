@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 // On gère l'ouverture de la modale de contact
 function displayModal() {
     const modal = document.getElementById("contact_modal");

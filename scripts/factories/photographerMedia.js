@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function photographerMediaFactory(data) {
 
     const photographerData = data[0]
@@ -86,7 +87,7 @@ function photographerMediaFactory(data) {
         const mediaTitle = document.createElement( 'h2' );
         mediaTitle.textContent = media.title;
         const mediaLikeCounter = document.createElement( 'p' );
-        mediaLikeCounter.innerHTML = `<span class="likes-counter">${media.likes}</span> <i class="fa-solid fa-heart like-icon"></i>`;
+        mediaLikeCounter.innerHTML = `<span class="likes-counter">${media.likes}</span> <span class="fa-solid fa-heart like-icon"></span>`;
 
 
         if (media.image) {
@@ -123,7 +124,7 @@ function photographerMediaFactory(data) {
         bannerText.setAttribute("id", "banner-container")
         let totalLikes = 0;
         photographerMediaList.forEach( media => totalLikes += media.likes )
-        bannerText.innerHTML = `<span id="total-likes-counter">${totalLikes}</span> <i class="fa-solid fa-heart"></i> ${photographerData.price}€/jour`
+        bannerText.innerHTML = `<span id="total-likes-counter">${totalLikes}</span> <span class="fa-solid fa-heart"></span> ${photographerData.price}€/jour`
         return(bannerText)
     }
 
